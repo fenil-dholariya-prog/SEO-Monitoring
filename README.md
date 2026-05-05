@@ -1,40 +1,106 @@
-<<<<<<< HEAD
-# SEO-Monitoring
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SEO Monthly Report Generator
 
-## Getting Started
+Internal agency tool for managing clients, monthly SEO data, manual work entries, Ahrefs off-page data, AI search visibility, report previews, and PDF/DOCX exports.
 
-First, run the development server:
+## Built
+
+- Next.js App Router with TypeScript and Tailwind CSS.
+- PostgreSQL schema with Prisma ORM for users, clients, reports, GSC snapshots, GA4 snapshots, Ahrefs snapshots, AI search snapshots, manual on-page work, backlinks, blog plans, app settings, and export records.
+- Website-level password gate before Google login. Default password: `Fenil@007`.
+- Auth.js/NextAuth Google OAuth with Prisma adapter and encrypted Google token storage table.
+- Client management with SEO type, logos, theme colour, GSC property, GA4 property, and Ahrefs project ID.
+- Step-based monthly report builder with GSC/GA4/Ahrefs fetch, AI search report, manual work forms, insight generation, preview, PDF export, and DOCX export.
+- Toggle to include or exclude the AI Search Report from the main client-facing report.
+- Recharts preview charts plus export-safe PDF charts/tables.
+- Local storage provider abstraction for generated exports and future UploadThing/R2/S3 replacement.
+- Development seed data and mock Google/Ahrefs fallback modes.
+
+## Setup
 
 ```bash
+npm install
+cp .env.example .env
+npm run prisma:generate
+npm run prisma:migrate
+npm run db:seed
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`. Enter the site access password first, then sign in with Google.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Upload To GitHub
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Use Git from the terminal instead of GitHub's browser uploader. The browser uploader can fail on required Next.js route folders like `[...nextauth]`, `[reportId]`, and `[...path]`.
 
-## Learn More
+See [GITHUB_UPLOAD.md](GITHUB_UPLOAD.md).
 
-To learn more about Next.js, take a look at the following resources:
+## Required Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `DATABASE_URL`: PostgreSQL connection string.
+- `AUTH_SECRET`: secure random Auth.js secret. Also signs the site access cookie.
+- `AUTH_URL`: local or deployed app URL.
+- `SITE_ACCESS_PASSWORD`: initial site access password. Defaults to `Fenil@007`.
+- `GOOGLE_CLIENT_ID`: Google OAuth client ID.
+- `GOOGLE_CLIENT_SECRET`: Google OAuth client secret.
+- `GOOGLE_OAUTH_SCOPES`: OAuth scopes for profile, Search Console, and GA4 read-only access.
+- `TOKEN_ENCRYPTION_KEY`: base64 32-byte key for encrypted Google token storage.
+- `GOOGLE_API_MOCK_MODE`: `true` for development mock data, `false` for real Google API calls.
+- `AHREFS_API_TOKEN`: Ahrefs API v3 bearer token.
+- `AHREFS_API_BASE_URL`: defaults to `https://api.ahrefs.com/v3`.
+- `AHREFS_API_MOCK_MODE`: `true` for development mock Ahrefs data, `false` for real Ahrefs calls.
+- `AHREFS_DEFAULT_COUNTRY`: country code for organic keyword/competitor reports, for example `us`.
+- `LOCAL_STORAGE_ROOT`: local export storage path.
+- `NEXT_PUBLIC_APP_URL`: app base URL used by exports.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Access Password
 
-## Deploy on Vercel
+The whole app is protected by a password gate before Google login. The seeded/default password is:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+Fenil@007
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> 3913273 (Initial commit from Create Next App)
+Admins can change it from Settings. The password is stored as a PBKDF2 hash in the `AppSetting` table, not as plain text.
+
+## AI Search Report
+
+Each monthly report can store:
+
+- Traffic from AI
+- Sales from AI
+- AI conversions
+- AI platforms where the site appears, such as ChatGPT, Perplexity, Gemini, or Google AI Overviews
+- Platform-level traffic/sales/conversion breakdown
+- Top cited pages
+- Notes
+
+Use the "Add AI Search Report to the main report" button in the report builder to include or exclude it from the report preview, PDF export, and DOCX export.
+
+## Google APIs
+
+Create a Google Cloud OAuth app and enable:
+
+- Google Search Console API
+- Google Analytics Data API
+
+Add an OAuth redirect URI:
+
+```text
+http://localhost:3000/api/auth/callback/google
+```
+
+Use the same Google account that has access to each client's GSC property and GA4 property. Add the client's `gscPropertyUrl` and `ga4PropertyId` in the client profile.
+
+## Mocked Data
+
+When `GOOGLE_API_MOCK_MODE=true`, GSC and GA4 fetches return realistic development data while still saving snapshots to the database. When `AHREFS_API_MOCK_MODE=true` or no Ahrefs token is configured in development, Ahrefs snapshots use realistic mock Site Explorer data.
+
+## Ahrefs API v3
+
+The report builder includes a separate "Fetch Ahrefs data" action. It stores an `AhrefsSnapshot` per report with domain overview, backlinks, referring domains, lost backlinks, organic keywords, anchor text distribution, top referring pages, quality notes, and competitor opportunity data.
+
+The integration uses Ahrefs Site Explorer API v3 endpoints including `domain-rating`, `backlinks-stats`, `metrics`, `all-backlinks`, `refdomains`, `anchors`, `organic-keywords`, and `organic-competitors`.
+
+## Remaining Phase 2+
+
+Add PageSpeed Insights, automated technical SEO audits, client portal, shareable report links, report approvals, scheduled monthly report generation, deeper competitor tracking, rank tracking, and email report delivery.
