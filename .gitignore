@@ -44,3 +44,7 @@ storage/uploads/*
 next-env.d.ts
 
 /src/generated/prisma
+
+# development tools
+.agents/
+skills-lock.json
