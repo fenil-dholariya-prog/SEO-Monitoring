@@ -46,12 +46,6 @@ export function buildReportHtml(report: ReportWithRelations, previous?: ReportWi
   const topQueries = rows(report.gscSnapshot?.topQueries);
   const lowCtr = rows(report.gscSnapshot?.lowCtrOpportunities);
   const landingPages = rows(report.ga4Snapshot?.topLandingPages);
-  const ahrefs = report.ahrefsSnapshot;
-  const anchorRows = rows(ahrefs?.anchorTextDistribution);
-  const topReferringPages = rows(ahrefs?.topReferringPages);
-  const lostBacklinks = rows(ahrefs?.lostBacklinksData);
-  const competitorGap = rows(ahrefs?.competitorBacklinkGap);
-  const qualityNotes = Array.isArray(ahrefs?.backlinkQualityNotes) ? (ahrefs.backlinkQualityNotes as string[]) : [];
   const aiSearch = report.aiSearchSnapshot?.includeInReport ? report.aiSearchSnapshot : null;
   const aiPlatforms = Array.isArray(aiSearch?.visiblePlatforms) ? (aiSearch.visiblePlatforms as string[]).map((platform) => ({ platform })) : [];
   const aiTopPages = Array.isArray(aiSearch?.topCitedPages) ? (aiSearch.topCitedPages as string[]).map((page) => ({ page })) : [];
@@ -154,22 +148,6 @@ export function buildReportHtml(report: ReportWithRelations, previous?: ReportWi
 
   <section class="section"><h2>On-page SEO Work Completed</h2>${table(report.onPageWorks as unknown as Row[], [{ key: "pageUrl", label: "Page" }, { key: "workType", label: "Type" }, { key: "title", label: "Work" }, { key: "impact", label: "Impact" }])}</section>
   <section class="section"><h2>Off-page SEO / Backlink Work</h2>${table(report.backlinkWorks as unknown as Row[], [{ key: "backlinkUrl", label: "Backlink" }, { key: "targetUrl", label: "Target page" }, { key: "anchorText", label: "Anchor" }, { key: "status", label: "Status" }, { key: "notes", label: "Quality notes" }])}</section>
-  <section class="section">
-    <h2>Ahrefs Off-page SEO Insights</h2>
-    <div class="grid">
-      <div class="card"><div class="label">Total backlinks</div><div class="metric">${formatNumber(ahrefs?.totalBacklinks)}</div></div>
-      <div class="card"><div class="label">New backlinks</div><div class="metric">${formatNumber(ahrefs?.newBacklinks)}</div></div>
-      <div class="card"><div class="label">Lost backlinks</div><div class="metric">${formatNumber(ahrefs?.lostBacklinks)}</div></div>
-      <div class="card"><div class="label">Referring domains</div><div class="metric">${formatNumber(ahrefs?.referringDomains)}</div></div>
-    </div>
-    <div class="grid two">
-      <div class="card"><h3>Anchor text distribution</h3>${table(anchorRows, [{ key: "anchorText", label: "Anchor text" }, { key: "backlinks", label: "Backlinks" }, { key: "share", label: "Share" }])}</div>
-      <div class="card"><h3>Top referring pages</h3>${table(topReferringPages, [{ key: "sourceUrl", label: "Referring page" }, { key: "domainRating", label: "DR" }, { key: "traffic", label: "Traffic" }])}</div>
-      <div class="card"><h3>Lost backlinks</h3>${table(lostBacklinks, [{ key: "sourceUrl", label: "Lost backlink" }, { key: "targetUrl", label: "Target" }, { key: "domainRating", label: "DR" }])}</div>
-      <div class="card"><h3>Competitor backlink opportunities</h3>${table(competitorGap, [{ key: "referringPage", label: "Opportunity" }, { key: "competitorUrl", label: "Competitor" }, { key: "domainRating", label: "DR" }])}</div>
-    </div>
-    <div class="card"><h3>Backlink quality notes</h3>${qualityNotes.length ? qualityNotes.map((note) => `<p>${escapeHtml(note)}</p>`).join("") : "<p>Fetch Ahrefs data to add backlink quality notes.</p>"}</div>
-  </section>
   <section class="section"><h2>Blog and Content Plan</h2>${table(report.blogPlans as unknown as Row[], [{ key: "topic", label: "Topic" }, { key: "targetKeyword", label: "Target keyword" }, { key: "searchIntent", label: "Intent" }, { key: "targetPage", label: "Target internal link" }, { key: "status", label: "Status" }])}</section>
   <section class="section"><h2>Opportunities and Issues</h2><p>${escapeHtml(report.issuesSummary)}</p><h2>Next Month Action Plan</h2><p>${escapeHtml(report.nextMonthFocus)}</p></section>
 </body>

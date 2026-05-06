@@ -139,11 +139,9 @@ export function generateExecutiveSummary(report: ReportWithRelations, previous?:
     },
     previous?.ga4Snapshot ?? null,
   );
-  const backlinkLine = report.ahrefsSnapshot
-    ? `${formatNumber(report.ahrefsSnapshot.newBacklinks)} new backlinks, ${formatNumber(report.ahrefsSnapshot.lostBacklinks)} lost backlinks, and ${formatNumber(report.ahrefsSnapshot.referringDomains)} referring domains were recorded in Ahrefs. This helps connect off-page work to authority growth and outreach priorities.`
-    : report.backlinkWorks.length
-      ? "New backlinks were added this month to support authority building and improve ranking potential for target pages."
-      : "No new backlinks were recorded this month, so authority-building should be reviewed in the next action plan.";
+  const backlinkLine = report.backlinkWorks.length
+    ? "New backlinks were added this month to support authority building and improve ranking potential for target pages."
+    : "No new backlinks were recorded this month, so authority-building should be reviewed in the next action plan.";
 
   return [
     gscInsights[0]?.body,
@@ -165,9 +163,7 @@ export function generateNextMonthPlan(report: ReportWithRelations) {
     "Rewrite titles and descriptions for high-impression pages with low click rate.",
     "Expand content around ranking opportunities in positions 4-10 and 11-20.",
     typeFocus,
-    report.ahrefsSnapshot
-      ? "Prioritize competitor backlink gap opportunities, recover valuable lost links where possible, and keep anchor text natural."
-      : "Continue backlink outreach for priority pages and document quality notes.",
+    "Continue backlink outreach for priority pages and document quality notes.",
     "Confirm any client approvals needed for new content, page edits, or conversion tracking changes.",
   ].join(" ");
 }

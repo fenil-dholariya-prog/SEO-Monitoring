@@ -24,7 +24,6 @@ export function ClientForm() {
       clientLogoUrl: "/placeholder-client.svg",
       gscPropertyUrl: "",
       ga4PropertyId: "",
-      ahrefsProjectId: "",
     },
   });
 
@@ -68,9 +67,6 @@ export function ClientForm() {
       </Field>
       <Field label="GA4 property ID" error={form.formState.errors.ga4PropertyId?.message}>
         <Input {...form.register("ga4PropertyId")} />
-      </Field>
-      <Field label="Ahrefs project ID" error={form.formState.errors.ahrefsProjectId?.message}>
-        <Input {...form.register("ahrefsProjectId")} placeholder="Prepared for Phase 2" />
       </Field>
       <div className="flex items-end">
         <Button type="submit" disabled={pending}>

@@ -22,7 +22,7 @@ export default function SettingsPage() {
         </Card>
         <Card>
           <h2 className="text-lg font-semibold text-gray-950">Next integration placeholders</h2>
-          <p className="mt-2 text-sm leading-6 text-gray-500">Ahrefs Site Explorer snapshots are active. The remaining extension points are PageSpeed Insights, technical audits, client portal, approvals, scheduled generation, competitor tracking, rank tracking, and email delivery.</p>
+          <p className="mt-2 text-sm leading-6 text-gray-500">The remaining extension points are PageSpeed Insights, technical audits, client portal, approvals, scheduled generation, competitor tracking, rank tracking, and email delivery.</p>
         </Card>
       </div>
     </div>

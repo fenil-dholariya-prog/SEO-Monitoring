@@ -394,7 +394,6 @@ export const ModelName = {
   Report: 'Report',
   GscSnapshot: 'GscSnapshot',
   Ga4Snapshot: 'Ga4Snapshot',
-  AhrefsSnapshot: 'AhrefsSnapshot',
   AiSearchSnapshot: 'AiSearchSnapshot',
   OnPageWork: 'OnPageWork',
   BacklinkWork: 'BacklinkWork',
@@ -415,7 +414,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "account" | "session" | "verificationToken" | "googleConnection" | "client" | "appSetting" | "report" | "gscSnapshot" | "ga4Snapshot" | "ahrefsSnapshot" | "aiSearchSnapshot" | "onPageWork" | "backlinkWork" | "blogPlan" | "reportExport"
+    modelProps: "user" | "account" | "session" | "verificationToken" | "googleConnection" | "client" | "appSetting" | "report" | "gscSnapshot" | "ga4Snapshot" | "aiSearchSnapshot" | "onPageWork" | "backlinkWork" | "blogPlan" | "reportExport"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1159,80 +1158,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    AhrefsSnapshot: {
-      payload: Prisma.$AhrefsSnapshotPayload<ExtArgs>
-      fields: Prisma.AhrefsSnapshotFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.AhrefsSnapshotFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.AhrefsSnapshotFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload>
-        }
-        findFirst: {
-          args: Prisma.AhrefsSnapshotFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.AhrefsSnapshotFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload>
-        }
-        findMany: {
-          args: Prisma.AhrefsSnapshotFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload>[]
-        }
-        create: {
-          args: Prisma.AhrefsSnapshotCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload>
-        }
-        createMany: {
-          args: Prisma.AhrefsSnapshotCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.AhrefsSnapshotCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload>[]
-        }
-        delete: {
-          args: Prisma.AhrefsSnapshotDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload>
-        }
-        update: {
-          args: Prisma.AhrefsSnapshotUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload>
-        }
-        deleteMany: {
-          args: Prisma.AhrefsSnapshotDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.AhrefsSnapshotUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.AhrefsSnapshotUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload>[]
-        }
-        upsert: {
-          args: Prisma.AhrefsSnapshotUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AhrefsSnapshotPayload>
-        }
-        aggregate: {
-          args: Prisma.AhrefsSnapshotAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateAhrefsSnapshot>
-        }
-        groupBy: {
-          args: Prisma.AhrefsSnapshotGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AhrefsSnapshotGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.AhrefsSnapshotCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AhrefsSnapshotCountAggregateOutputType> | number
-        }
-      }
-    }
     AiSearchSnapshot: {
       payload: Prisma.$AiSearchSnapshotPayload<ExtArgs>
       fields: Prisma.AiSearchSnapshotFieldRefs
@@ -1720,7 +1645,6 @@ export const ClientScalarFieldEnum = {
   clientLogoUrl: 'clientLogoUrl',
   gscPropertyUrl: 'gscPropertyUrl',
   ga4PropertyId: 'ga4PropertyId',
-  ahrefsProjectId: 'ahrefsProjectId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1795,33 +1719,6 @@ export const Ga4SnapshotScalarFieldEnum = {
 } as const
 
 export type Ga4SnapshotScalarFieldEnum = (typeof Ga4SnapshotScalarFieldEnum)[keyof typeof Ga4SnapshotScalarFieldEnum]
-
-
-export const AhrefsSnapshotScalarFieldEnum = {
-  id: 'id',
-  reportId: 'reportId',
-  target: 'target',
-  mode: 'mode',
-  domainRating: 'domainRating',
-  totalBacklinks: 'totalBacklinks',
-  newBacklinks: 'newBacklinks',
-  lostBacklinks: 'lostBacklinks',
-  referringDomains: 'referringDomains',
-  organicKeywords: 'organicKeywords',
-  organicTraffic: 'organicTraffic',
-  domainOverview: 'domainOverview',
-  backlinks: 'backlinks',
-  referringDomainsData: 'referringDomainsData',
-  lostBacklinksData: 'lostBacklinksData',
-  organicKeywordsData: 'organicKeywordsData',
-  competitorBacklinkGap: 'competitorBacklinkGap',
-  anchorTextDistribution: 'anchorTextDistribution',
-  topReferringPages: 'topReferringPages',
-  backlinkQualityNotes: 'backlinkQualityNotes',
-  createdAt: 'createdAt'
-} as const
-
-export type AhrefsSnapshotScalarFieldEnum = (typeof AhrefsSnapshotScalarFieldEnum)[keyof typeof AhrefsSnapshotScalarFieldEnum]
 
 
 export const AiSearchSnapshotScalarFieldEnum = {
@@ -2206,7 +2103,6 @@ export type GlobalOmitConfig = {
   report?: Prisma.ReportOmit
   gscSnapshot?: Prisma.GscSnapshotOmit
   ga4Snapshot?: Prisma.Ga4SnapshotOmit
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotOmit
   aiSearchSnapshot?: Prisma.AiSearchSnapshotOmit
   onPageWork?: Prisma.OnPageWorkOmit
   backlinkWork?: Prisma.BacklinkWorkOmit

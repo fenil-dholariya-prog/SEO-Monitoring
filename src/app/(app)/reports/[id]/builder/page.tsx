@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { LinkButton } from "@/components/ui/button";
 import { BacklinkWorkForm, BlogPlanForm, OnPageWorkForm } from "@/components/forms/manual-work-forms";
 import { AiSearchForm } from "@/components/forms/ai-search-form";
-import { ExportButtons, FetchAhrefsButton, FetchDataButton, GenerateInsightsButton } from "@/components/report/report-actions";
+import { ExportButtons, FetchDataButton, GenerateInsightsButton } from "@/components/report/report-actions";
 import { getReportWithRelations } from "@/server/queries";
 import { monthName } from "@/lib/utils";
 
@@ -57,7 +57,6 @@ export default async function ReportBuilderPage({ params }: { params: Promise<{ 
             <p className="mt-1 text-sm text-gray-500">Fetch Search Console and GA4 snapshots for the selected date range. Mock mode is used when credentials are unavailable.</p>
             <div className="mt-5 space-y-3">
               <FetchDataButton reportId={report.id} />
-              <FetchAhrefsButton reportId={report.id} />
               <GenerateInsightsButton reportId={report.id} />
             </div>
           </Card>
@@ -78,7 +77,6 @@ export default async function ReportBuilderPage({ params }: { params: Promise<{ 
               <p><span className="font-medium text-gray-950">Status:</span> {report.status}</p>
               <p><span className="font-medium text-gray-950">GSC:</span> {report.gscSnapshot ? "Snapshot saved" : "No data yet"}</p>
               <p><span className="font-medium text-gray-950">GA4:</span> {report.ga4Snapshot ? "Snapshot saved" : "No data yet"}</p>
-              <p><span className="font-medium text-gray-950">Ahrefs:</span> {report.ahrefsSnapshot ? "Snapshot saved" : "No data yet"}</p>
               <p><span className="font-medium text-gray-950">AI Search:</span> {report.aiSearchSnapshot?.includeInReport ? "Included in report" : report.aiSearchSnapshot ? "Saved, not included" : "No data yet"}</p>
               <p><span className="font-medium text-gray-950">On-page entries:</span> {report.onPageWorks.length}</p>
               <p><span className="font-medium text-gray-950">Backlinks:</span> {report.backlinkWorks.length}</p>

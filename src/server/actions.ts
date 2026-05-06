@@ -9,7 +9,6 @@ import { clientSchema } from "@/lib/validators/client";
 import { aiSearchSchema, backlinkWorkSchema, blogPlanSchema, onPageWorkSchema, reportCopySchema, reportSchema } from "@/lib/validators/report";
 import { fetchGscCountryData, fetchGscDeviceData, fetchGscLowCtrPages, fetchGscOverview, fetchGscTopPages, fetchGscTopQueries } from "@/lib/google/gsc";
 import { fetchGa4EcommerceData, fetchGa4LandingPages, fetchGa4LeadGenData, fetchGa4OrganicOverview } from "@/lib/google/ga4";
-import { fetchAhrefsSnapshot } from "@/lib/ahrefs/client";
 import { generateExecutiveSummary, generateNextMonthPlan } from "@/lib/insights/report-insights";
 import { getPreviousReport, getReportWithRelations } from "@/server/queries";
 import { requireUser } from "@/server/authz";
@@ -55,7 +54,6 @@ export async function createClientAction(_state: unknown, formData: FormData) {
       clientLogoUrl: parsed.data.clientLogoUrl || null,
       gscPropertyUrl: parsed.data.gscPropertyUrl || null,
       ga4PropertyId: parsed.data.ga4PropertyId || null,
-      ahrefsProjectId: parsed.data.ahrefsProjectId || null,
     },
   });
   revalidatePath("/clients");
@@ -198,61 +196,6 @@ export async function fetchReportDataAction(reportId: string) {
   await generateInsightsAction(reportId);
   revalidatePath(`/reports/${reportId}/builder`);
   return { ok: true };
-}
-
-export async function fetchAhrefsDataAction(reportId: string) {
-  await requireUser();
-  const report = await prisma.report.findUnique({ where: { id: reportId }, include: { client: true } });
-  if (!report) return { error: "Report not found." };
-
-  try {
-    const snapshot = await fetchAhrefsSnapshot({
-      target: report.client.websiteUrl,
-      startDate: report.startDate,
-      endDate: report.endDate,
-      country: process.env.AHREFS_DEFAULT_COUNTRY,
-    });
-    const data = {
-      target: snapshot.target,
-      mode: snapshot.mode,
-      domainRating: snapshot.domainRating,
-      totalBacklinks: snapshot.totalBacklinks,
-      newBacklinks: snapshot.newBacklinks,
-      lostBacklinks: snapshot.lostBacklinks,
-      referringDomains: snapshot.referringDomains,
-      organicKeywords: snapshot.organicKeywords,
-      organicTraffic: snapshot.organicTraffic,
-      domainOverview: json(snapshot.domainOverview),
-      backlinks: json(snapshot.backlinks),
-      referringDomainsData: json(snapshot.referringDomainsData),
-      lostBacklinksData: json(snapshot.lostBacklinksData),
-      organicKeywordsData: json(snapshot.organicKeywordsData),
-      competitorBacklinkGap: json(snapshot.competitorBacklinkGap),
-      anchorTextDistribution: json(snapshot.anchorTextDistribution),
-      topReferringPages: json(snapshot.topReferringPages),
-      backlinkQualityNotes: json(snapshot.backlinkQualityNotes),
-    };
-
-    await prisma.ahrefsSnapshot.upsert({
-      where: { reportId },
-      update: data,
-      create: {
-        reportId,
-        ...data,
-      },
-    });
-
-    await generateInsightsAction(reportId);
-    revalidatePath(`/reports/${reportId}/builder`);
-    revalidatePath(`/reports/${reportId}/preview`);
-    return { ok: true };
-  } catch (error) {
-    console.error(error);
-    return {
-      error:
-        "Ahrefs data could not be fetched. Check the API token, project access, quota, and selected reporting range.",
-    };
-  }
 }
 
 export async function generateInsightsAction(reportId: string) {

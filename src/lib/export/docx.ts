@@ -47,7 +47,6 @@ function table(data: Row[], columns: Array<{ key: string; label: string }>) {
 
 export async function buildReportDocx(report: ReportWithRelations, previous?: ReportWithRelations | null) {
   const insights = getReportInsights(report, previous);
-  const ahrefs = report.ahrefsSnapshot;
   const aiSearch = report.aiSearchSnapshot?.includeInReport ? report.aiSearchSnapshot : null;
   const aiPlatforms = Array.isArray(aiSearch?.visiblePlatforms) ? (aiSearch.visiblePlatforms as string[]).map((platform) => ({ platform })) : [];
   const aiTopPages = Array.isArray(aiSearch?.topCitedPages) ? (aiSearch.topCitedPages as string[]).map((page) => ({ page })) : [];
@@ -157,47 +156,6 @@ export async function buildReportDocx(report: ReportWithRelations, previous?: Re
             { key: "anchorText", label: "Anchor" },
             { key: "status", label: "Status" },
           ]),
-          heading("Ahrefs Off-page SEO Insights"),
-          table(
-            [
-              { label: "Total backlinks", value: formatNumber(ahrefs?.totalBacklinks) },
-              { label: "New backlinks", value: formatNumber(ahrefs?.newBacklinks) },
-              { label: "Lost backlinks", value: formatNumber(ahrefs?.lostBacklinks) },
-              { label: "Referring domains", value: formatNumber(ahrefs?.referringDomains) },
-            ],
-            [
-              { key: "label", label: "Metric" },
-              { key: "value", label: "Value" },
-            ],
-          ),
-          new Paragraph({ text: "Anchor Text Distribution", heading: HeadingLevel.HEADING_3 }),
-          table(rows(ahrefs?.anchorTextDistribution), [
-            { key: "anchorText", label: "Anchor text" },
-            { key: "backlinks", label: "Backlinks" },
-            { key: "share", label: "Share" },
-          ]),
-          new Paragraph({ text: "Top Referring Pages", heading: HeadingLevel.HEADING_3 }),
-          table(rows(ahrefs?.topReferringPages), [
-            { key: "sourceUrl", label: "Referring page" },
-            { key: "domainRating", label: "DR" },
-            { key: "traffic", label: "Traffic" },
-          ]),
-          new Paragraph({ text: "Lost Backlinks", heading: HeadingLevel.HEADING_3 }),
-          table(rows(ahrefs?.lostBacklinksData), [
-            { key: "sourceUrl", label: "Lost backlink" },
-            { key: "targetUrl", label: "Target" },
-            { key: "domainRating", label: "DR" },
-          ]),
-          new Paragraph({ text: "Competitor Backlink Opportunities", heading: HeadingLevel.HEADING_3 }),
-          table(rows(ahrefs?.competitorBacklinkGap), [
-            { key: "referringPage", label: "Opportunity" },
-            { key: "competitorUrl", label: "Competitor" },
-            { key: "domainRating", label: "DR" },
-          ]),
-          new Paragraph({ text: "Backlink Quality Notes", heading: HeadingLevel.HEADING_3 }),
-          ...(Array.isArray(ahrefs?.backlinkQualityNotes)
-            ? (ahrefs.backlinkQualityNotes as string[]).map((note) => para(note))
-            : [para("Fetch Ahrefs data to add backlink quality notes.")]),
           heading("Blog and Content Plan"),
           table(report.blogPlans as unknown as Row[], [
             { key: "topic", label: "Topic" },

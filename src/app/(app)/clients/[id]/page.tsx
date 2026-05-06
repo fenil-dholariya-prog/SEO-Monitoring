@@ -38,7 +38,6 @@ export default async function ClientDetailPage({ params }: { params: Promise<{ i
             <p><span className="font-medium text-gray-950">Target country:</span> {client.targetCountry}</p>
             <p><span className="font-medium text-gray-950">GSC property:</span> {client.gscPropertyUrl || "Missing"}</p>
             <p><span className="font-medium text-gray-950">GA4 property:</span> {client.ga4PropertyId || "Missing"}</p>
-            <p><span className="font-medium text-gray-950">Ahrefs project:</span> {client.ahrefsProjectId || "Phase 2 placeholder"}</p>
           </div>
         </Card>
         <Card>

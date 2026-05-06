@@ -92,11 +92,6 @@ export type GscSnapshot = Prisma.GscSnapshotModel
  */
 export type Ga4Snapshot = Prisma.Ga4SnapshotModel
 /**
- * Model AhrefsSnapshot
- * 
- */
-export type AhrefsSnapshot = Prisma.AhrefsSnapshotModel
-/**
  * Model AiSearchSnapshot
  * 
  */

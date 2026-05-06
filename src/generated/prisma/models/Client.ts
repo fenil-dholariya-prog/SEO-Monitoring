@@ -36,7 +36,6 @@ export type ClientMinAggregateOutputType = {
   clientLogoUrl: string | null
   gscPropertyUrl: string | null
   ga4PropertyId: string | null
-  ahrefsProjectId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -53,7 +52,6 @@ export type ClientMaxAggregateOutputType = {
   clientLogoUrl: string | null
   gscPropertyUrl: string | null
   ga4PropertyId: string | null
-  ahrefsProjectId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -70,7 +68,6 @@ export type ClientCountAggregateOutputType = {
   clientLogoUrl: number
   gscPropertyUrl: number
   ga4PropertyId: number
-  ahrefsProjectId: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -89,7 +86,6 @@ export type ClientMinAggregateInputType = {
   clientLogoUrl?: true
   gscPropertyUrl?: true
   ga4PropertyId?: true
-  ahrefsProjectId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -106,7 +102,6 @@ export type ClientMaxAggregateInputType = {
   clientLogoUrl?: true
   gscPropertyUrl?: true
   ga4PropertyId?: true
-  ahrefsProjectId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -123,7 +118,6 @@ export type ClientCountAggregateInputType = {
   clientLogoUrl?: true
   gscPropertyUrl?: true
   ga4PropertyId?: true
-  ahrefsProjectId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -213,7 +207,6 @@ export type ClientGroupByOutputType = {
   clientLogoUrl: string | null
   gscPropertyUrl: string | null
   ga4PropertyId: string | null
-  ahrefsProjectId: string | null
   createdAt: Date
   updatedAt: Date
   _count: ClientCountAggregateOutputType | null
@@ -251,7 +244,6 @@ export type ClientWhereInput = {
   clientLogoUrl?: Prisma.StringNullableFilter<"Client"> | string | null
   gscPropertyUrl?: Prisma.StringNullableFilter<"Client"> | string | null
   ga4PropertyId?: Prisma.StringNullableFilter<"Client"> | string | null
-  ahrefsProjectId?: Prisma.StringNullableFilter<"Client"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Client"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Client"> | Date | string
   reports?: Prisma.ReportListRelationFilter
@@ -269,7 +261,6 @@ export type ClientOrderByWithRelationInput = {
   clientLogoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   gscPropertyUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   ga4PropertyId?: Prisma.SortOrderInput | Prisma.SortOrder
-  ahrefsProjectId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   reports?: Prisma.ReportOrderByRelationAggregateInput
@@ -290,7 +281,6 @@ export type ClientWhereUniqueInput = Prisma.AtLeast<{
   clientLogoUrl?: Prisma.StringNullableFilter<"Client"> | string | null
   gscPropertyUrl?: Prisma.StringNullableFilter<"Client"> | string | null
   ga4PropertyId?: Prisma.StringNullableFilter<"Client"> | string | null
-  ahrefsProjectId?: Prisma.StringNullableFilter<"Client"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Client"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Client"> | Date | string
   reports?: Prisma.ReportListRelationFilter
@@ -308,7 +298,6 @@ export type ClientOrderByWithAggregationInput = {
   clientLogoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   gscPropertyUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   ga4PropertyId?: Prisma.SortOrderInput | Prisma.SortOrder
-  ahrefsProjectId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ClientCountOrderByAggregateInput
@@ -331,7 +320,6 @@ export type ClientScalarWhereWithAggregatesInput = {
   clientLogoUrl?: Prisma.StringNullableWithAggregatesFilter<"Client"> | string | null
   gscPropertyUrl?: Prisma.StringNullableWithAggregatesFilter<"Client"> | string | null
   ga4PropertyId?: Prisma.StringNullableWithAggregatesFilter<"Client"> | string | null
-  ahrefsProjectId?: Prisma.StringNullableWithAggregatesFilter<"Client"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Client"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Client"> | Date | string
 }
@@ -348,7 +336,6 @@ export type ClientCreateInput = {
   clientLogoUrl?: string | null
   gscPropertyUrl?: string | null
   ga4PropertyId?: string | null
-  ahrefsProjectId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   reports?: Prisma.ReportCreateNestedManyWithoutClientInput
@@ -366,7 +353,6 @@ export type ClientUncheckedCreateInput = {
   clientLogoUrl?: string | null
   gscPropertyUrl?: string | null
   ga4PropertyId?: string | null
-  ahrefsProjectId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   reports?: Prisma.ReportUncheckedCreateNestedManyWithoutClientInput
@@ -384,7 +370,6 @@ export type ClientUpdateInput = {
   clientLogoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gscPropertyUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ga4PropertyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ahrefsProjectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reports?: Prisma.ReportUpdateManyWithoutClientNestedInput
@@ -402,7 +387,6 @@ export type ClientUncheckedUpdateInput = {
   clientLogoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gscPropertyUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ga4PropertyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ahrefsProjectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reports?: Prisma.ReportUncheckedUpdateManyWithoutClientNestedInput
@@ -420,7 +404,6 @@ export type ClientCreateManyInput = {
   clientLogoUrl?: string | null
   gscPropertyUrl?: string | null
   ga4PropertyId?: string | null
-  ahrefsProjectId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -437,7 +420,6 @@ export type ClientUpdateManyMutationInput = {
   clientLogoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gscPropertyUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ga4PropertyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ahrefsProjectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -454,7 +436,6 @@ export type ClientUncheckedUpdateManyInput = {
   clientLogoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gscPropertyUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ga4PropertyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ahrefsProjectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -471,7 +452,6 @@ export type ClientCountOrderByAggregateInput = {
   clientLogoUrl?: Prisma.SortOrder
   gscPropertyUrl?: Prisma.SortOrder
   ga4PropertyId?: Prisma.SortOrder
-  ahrefsProjectId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -488,7 +468,6 @@ export type ClientMaxOrderByAggregateInput = {
   clientLogoUrl?: Prisma.SortOrder
   gscPropertyUrl?: Prisma.SortOrder
   ga4PropertyId?: Prisma.SortOrder
-  ahrefsProjectId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -505,7 +484,6 @@ export type ClientMinOrderByAggregateInput = {
   clientLogoUrl?: Prisma.SortOrder
   gscPropertyUrl?: Prisma.SortOrder
   ga4PropertyId?: Prisma.SortOrder
-  ahrefsProjectId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -545,7 +523,6 @@ export type ClientCreateWithoutReportsInput = {
   clientLogoUrl?: string | null
   gscPropertyUrl?: string | null
   ga4PropertyId?: string | null
-  ahrefsProjectId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -562,7 +539,6 @@ export type ClientUncheckedCreateWithoutReportsInput = {
   clientLogoUrl?: string | null
   gscPropertyUrl?: string | null
   ga4PropertyId?: string | null
-  ahrefsProjectId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -595,7 +571,6 @@ export type ClientUpdateWithoutReportsInput = {
   clientLogoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gscPropertyUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ga4PropertyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ahrefsProjectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -612,7 +587,6 @@ export type ClientUncheckedUpdateWithoutReportsInput = {
   clientLogoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gscPropertyUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ga4PropertyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ahrefsProjectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -660,7 +634,6 @@ export type ClientSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   clientLogoUrl?: boolean
   gscPropertyUrl?: boolean
   ga4PropertyId?: boolean
-  ahrefsProjectId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   reports?: boolean | Prisma.Client$reportsArgs<ExtArgs>
@@ -679,7 +652,6 @@ export type ClientSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   clientLogoUrl?: boolean
   gscPropertyUrl?: boolean
   ga4PropertyId?: boolean
-  ahrefsProjectId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["client"]>
@@ -696,7 +668,6 @@ export type ClientSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   clientLogoUrl?: boolean
   gscPropertyUrl?: boolean
   ga4PropertyId?: boolean
-  ahrefsProjectId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["client"]>
@@ -713,12 +684,11 @@ export type ClientSelectScalar = {
   clientLogoUrl?: boolean
   gscPropertyUrl?: boolean
   ga4PropertyId?: boolean
-  ahrefsProjectId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ClientOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "websiteUrl" | "clientType" | "industry" | "targetCountry" | "brandColor" | "agencyLogoUrl" | "clientLogoUrl" | "gscPropertyUrl" | "ga4PropertyId" | "ahrefsProjectId" | "createdAt" | "updatedAt", ExtArgs["result"]["client"]>
+export type ClientOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "websiteUrl" | "clientType" | "industry" | "targetCountry" | "brandColor" | "agencyLogoUrl" | "clientLogoUrl" | "gscPropertyUrl" | "ga4PropertyId" | "createdAt" | "updatedAt", ExtArgs["result"]["client"]>
 export type ClientInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   reports?: boolean | Prisma.Client$reportsArgs<ExtArgs>
   _count?: boolean | Prisma.ClientCountOutputTypeDefaultArgs<ExtArgs>
@@ -743,7 +713,6 @@ export type $ClientPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     clientLogoUrl: string | null
     gscPropertyUrl: string | null
     ga4PropertyId: string | null
-    ahrefsProjectId: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["client"]>
@@ -1181,7 +1150,6 @@ export interface ClientFieldRefs {
   readonly clientLogoUrl: Prisma.FieldRef<"Client", 'String'>
   readonly gscPropertyUrl: Prisma.FieldRef<"Client", 'String'>
   readonly ga4PropertyId: Prisma.FieldRef<"Client", 'String'>
-  readonly ahrefsProjectId: Prisma.FieldRef<"Client", 'String'>
   readonly createdAt: Prisma.FieldRef<"Client", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Client", 'DateTime'>
 }

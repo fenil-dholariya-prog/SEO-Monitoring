@@ -1,19 +1,19 @@
 # SEO Monthly Report Generator
 
-Internal agency tool for managing clients, monthly SEO data, manual work entries, Ahrefs off-page data, AI search visibility, report previews, and PDF/DOCX exports.
+Internal agency tool for managing clients, monthly SEO data, manual work entries, AI search visibility, report previews, and PDF/DOCX exports.
 
 ## Built
 
 - Next.js App Router with TypeScript and Tailwind CSS.
-- PostgreSQL schema with Prisma ORM for users, clients, reports, GSC snapshots, GA4 snapshots, Ahrefs snapshots, AI search snapshots, manual on-page work, backlinks, blog plans, app settings, and export records.
+- PostgreSQL schema with Prisma ORM for users, clients, reports, GSC snapshots, GA4 snapshots, AI search snapshots, manual on-page work, backlinks, blog plans, app settings, and export records.
 - Website-level password gate before Google login. Default password: `Fenil@007`.
 - Auth.js/NextAuth Google OAuth with Prisma adapter and encrypted Google token storage table.
-- Client management with SEO type, logos, theme colour, GSC property, GA4 property, and Ahrefs project ID.
-- Step-based monthly report builder with GSC/GA4/Ahrefs fetch, AI search report, manual work forms, insight generation, preview, PDF export, and DOCX export.
+- Client management with SEO type, logos, theme colour, GSC property, and GA4 property.
+- Step-based monthly report builder with GSC/GA4 fetch, AI search report, manual work forms, insight generation, preview, PDF export, and DOCX export.
 - Toggle to include or exclude the AI Search Report from the main client-facing report.
 - Recharts preview charts plus export-safe PDF charts/tables.
 - Local storage provider abstraction for generated exports and future UploadThing/R2/S3 replacement.
-- Development seed data and mock Google/Ahrefs fallback modes.
+- Development seed data and mock Google fallback modes.
 
 ## Setup
 
@@ -45,10 +45,6 @@ See [GITHUB_UPLOAD.md](GITHUB_UPLOAD.md).
 - `GOOGLE_OAUTH_SCOPES`: OAuth scopes for profile, Search Console, and GA4 read-only access.
 - `TOKEN_ENCRYPTION_KEY`: base64 32-byte key for encrypted Google token storage.
 - `GOOGLE_API_MOCK_MODE`: `true` for development mock data, `false` for real Google API calls.
-- `AHREFS_API_TOKEN`: Ahrefs API v3 bearer token.
-- `AHREFS_API_BASE_URL`: defaults to `https://api.ahrefs.com/v3`.
-- `AHREFS_API_MOCK_MODE`: `true` for development mock Ahrefs data, `false` for real Ahrefs calls.
-- `AHREFS_DEFAULT_COUNTRY`: country code for organic keyword/competitor reports, for example `us`.
 - `LOCAL_STORAGE_ROOT`: local export storage path.
 - `NEXT_PUBLIC_APP_URL`: app base URL used by exports.
 
@@ -93,13 +89,7 @@ Use the same Google account that has access to each client's GSC property and GA
 
 ## Mocked Data
 
-When `GOOGLE_API_MOCK_MODE=true`, GSC and GA4 fetches return realistic development data while still saving snapshots to the database. When `AHREFS_API_MOCK_MODE=true` or no Ahrefs token is configured in development, Ahrefs snapshots use realistic mock Site Explorer data.
-
-## Ahrefs API v3
-
-The report builder includes a separate "Fetch Ahrefs data" action. It stores an `AhrefsSnapshot` per report with domain overview, backlinks, referring domains, lost backlinks, organic keywords, anchor text distribution, top referring pages, quality notes, and competitor opportunity data.
-
-The integration uses Ahrefs Site Explorer API v3 endpoints including `domain-rating`, `backlinks-stats`, `metrics`, `all-backlinks`, `refdomains`, `anchors`, `organic-keywords`, and `organic-competitors`.
+When `GOOGLE_API_MOCK_MODE=true`, GSC and GA4 fetches return realistic development data while still saving snapshots to the database.
 
 ## Remaining Phase 2+
 

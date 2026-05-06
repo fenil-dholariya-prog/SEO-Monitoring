@@ -61,7 +61,6 @@ export const ModelName = {
   Report: 'Report',
   GscSnapshot: 'GscSnapshot',
   Ga4Snapshot: 'Ga4Snapshot',
-  AhrefsSnapshot: 'AhrefsSnapshot',
   AiSearchSnapshot: 'AiSearchSnapshot',
   OnPageWork: 'OnPageWork',
   BacklinkWork: 'BacklinkWork',
@@ -163,7 +162,6 @@ export const ClientScalarFieldEnum = {
   clientLogoUrl: 'clientLogoUrl',
   gscPropertyUrl: 'gscPropertyUrl',
   ga4PropertyId: 'ga4PropertyId',
-  ahrefsProjectId: 'ahrefsProjectId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -238,33 +236,6 @@ export const Ga4SnapshotScalarFieldEnum = {
 } as const
 
 export type Ga4SnapshotScalarFieldEnum = (typeof Ga4SnapshotScalarFieldEnum)[keyof typeof Ga4SnapshotScalarFieldEnum]
-
-
-export const AhrefsSnapshotScalarFieldEnum = {
-  id: 'id',
-  reportId: 'reportId',
-  target: 'target',
-  mode: 'mode',
-  domainRating: 'domainRating',
-  totalBacklinks: 'totalBacklinks',
-  newBacklinks: 'newBacklinks',
-  lostBacklinks: 'lostBacklinks',
-  referringDomains: 'referringDomains',
-  organicKeywords: 'organicKeywords',
-  organicTraffic: 'organicTraffic',
-  domainOverview: 'domainOverview',
-  backlinks: 'backlinks',
-  referringDomainsData: 'referringDomainsData',
-  lostBacklinksData: 'lostBacklinksData',
-  organicKeywordsData: 'organicKeywordsData',
-  competitorBacklinkGap: 'competitorBacklinkGap',
-  anchorTextDistribution: 'anchorTextDistribution',
-  topReferringPages: 'topReferringPages',
-  backlinkQualityNotes: 'backlinkQualityNotes',
-  createdAt: 'createdAt'
-} as const
-
-export type AhrefsSnapshotScalarFieldEnum = (typeof AhrefsSnapshotScalarFieldEnum)[keyof typeof AhrefsSnapshotScalarFieldEnum]
 
 
 export const AiSearchSnapshotScalarFieldEnum = {

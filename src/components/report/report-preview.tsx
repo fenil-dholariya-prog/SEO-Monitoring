@@ -48,12 +48,6 @@ export function ReportPreview({ report, previous }: { report: ReportWithRelation
   const landingPages = rows(report.ga4Snapshot?.topLandingPages);
   const lowCtr = rows(report.gscSnapshot?.lowCtrOpportunities);
   const movement = rows(report.gscSnapshot?.keywordMovement);
-  const ahrefs = report.ahrefsSnapshot;
-  const anchorRows = rows(ahrefs?.anchorTextDistribution);
-  const topReferringPages = rows(ahrefs?.topReferringPages);
-  const competitorGap = rows(ahrefs?.competitorBacklinkGap);
-  const lostBacklinks = rows(ahrefs?.lostBacklinksData);
-  const qualityNotes = Array.isArray(ahrefs?.backlinkQualityNotes) ? (ahrefs.backlinkQualityNotes as string[]) : [];
   const aiSearch = report.aiSearchSnapshot?.includeInReport ? report.aiSearchSnapshot : null;
   const aiPlatforms = Array.isArray(aiSearch?.visiblePlatforms)
     ? (aiSearch.visiblePlatforms as string[]).map((platform) => ({ platform }))
@@ -140,81 +134,6 @@ export function ReportPreview({ report, previous }: { report: ReportWithRelation
             <MiniTable data={rows(report.gscSnapshot?.topQueries)} columns={[{ key: "query", label: "Query" }, { key: "clicks", label: "Clicks" }, { key: "impressions", label: "Impressions" }, { key: "position", label: "Position" }]} />
           </Card>
         </div>
-      </section>
-
-      <section className="report-page-break space-y-5">
-        <div>
-          <h2 className="text-2xl font-semibold text-gray-950">Ahrefs Off-page SEO Insights</h2>
-          <p className="mt-2 text-sm text-gray-500">
-            Authority, backlink growth, lost links, anchors, and competitor backlink opportunities.
-          </p>
-        </div>
-        <div className="grid gap-4 md:grid-cols-4">
-          <StatCard label="Total backlinks" value={formatNumber(ahrefs?.totalBacklinks)} accent={color} />
-          <StatCard label="New backlinks" value={formatNumber(ahrefs?.newBacklinks)} accent={color} />
-          <StatCard label="Lost backlinks" value={formatNumber(ahrefs?.lostBacklinks)} accent={color} />
-          <StatCard label="Referring domains" value={formatNumber(ahrefs?.referringDomains)} accent={color} />
-        </div>
-        <div className="grid gap-5 lg:grid-cols-2">
-          <Card>
-            <h3 className="mb-4 text-lg font-semibold">Anchor text distribution</h3>
-            <MiniTable
-              data={anchorRows}
-              columns={[
-                { key: "anchorText", label: "Anchor text" },
-                { key: "backlinks", label: "Backlinks" },
-                { key: "share", label: "Share" },
-              ]}
-            />
-          </Card>
-          <Card>
-            <h3 className="mb-4 text-lg font-semibold">Top referring pages</h3>
-            <MiniTable
-              data={topReferringPages}
-              columns={[
-                { key: "sourceUrl", label: "Referring page" },
-                { key: "domainRating", label: "DR" },
-                { key: "traffic", label: "Traffic" },
-              ]}
-            />
-          </Card>
-          <Card>
-            <h3 className="mb-4 text-lg font-semibold">Lost backlinks</h3>
-            <MiniTable
-              data={lostBacklinks}
-              columns={[
-                { key: "sourceUrl", label: "Lost backlink" },
-                { key: "targetUrl", label: "Target" },
-                { key: "domainRating", label: "DR" },
-              ]}
-            />
-          </Card>
-          <Card>
-            <h3 className="mb-4 text-lg font-semibold">Competitor backlink opportunities</h3>
-            <MiniTable
-              data={competitorGap}
-              columns={[
-                { key: "referringPage", label: "Opportunity" },
-                { key: "competitorUrl", label: "Competitor" },
-                { key: "domainRating", label: "DR" },
-              ]}
-            />
-          </Card>
-        </div>
-        <Card>
-          <h3 className="text-lg font-semibold">Backlink quality notes</h3>
-          <div className="mt-3 grid gap-2">
-            {qualityNotes.length ? (
-              qualityNotes.map((note) => (
-                <p key={note} className="rounded-md bg-gray-50 p-3 text-sm leading-6 text-gray-600">
-                  {note}
-                </p>
-              ))
-            ) : (
-              <p className="text-sm text-gray-500">Fetch Ahrefs data to add backlink quality notes.</p>
-            )}
-          </div>
-        </Card>
       </section>
 
       <section className="report-page-break grid gap-5 lg:grid-cols-2">

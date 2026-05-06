@@ -4,7 +4,6 @@ import type {
   Client,
   Ga4Snapshot,
   GscSnapshot,
-  AhrefsSnapshot,
   AiSearchSnapshot,
   OnPageWork,
   Report,
@@ -17,7 +16,6 @@ export type ReportWithRelations = Report & {
   client: Client;
   gscSnapshot: GscSnapshot | null;
   ga4Snapshot: Ga4Snapshot | null;
-  ahrefsSnapshot: AhrefsSnapshot | null;
   aiSearchSnapshot: AiSearchSnapshot | null;
   onPageWorks: OnPageWork[];
   backlinkWorks: BacklinkWork[];

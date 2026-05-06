@@ -103,10 +103,9 @@ model Client {
   clientLogoUrl   String?
   gscPropertyUrl  String?
   ga4PropertyId   String?
-  ahrefsProjectId String?
   reports         Report[]
   createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
+  updatedAt       DateTime @updatedAt
 
   @@index([clientType])
   @@index([name])
@@ -135,7 +134,6 @@ model Report {
   client            Client          @relation(fields: [clientId], references: [id], onDelete: Cascade)
   gscSnapshot       GscSnapshot?
   ga4Snapshot       Ga4Snapshot?
-  ahrefsSnapshot    AhrefsSnapshot?
   aiSearchSnapshot  AiSearchSnapshot?
   onPageWorks       OnPageWork[]
   backlinkWorks     BacklinkWork[]
@@ -183,34 +181,6 @@ model Ga4Snapshot {
   leadGenData     Json?
   createdAt       DateTime @default(now())
   report          Report   @relation(fields: [reportId], references: [id], onDelete: Cascade)
-}
-
-model AhrefsSnapshot {
-  id                     String   @id @default(cuid())
-  reportId               String   @unique
-  target                 String
-  mode                   String   @default("domain")
-  domainRating           Float?
-  totalBacklinks         Int
-  newBacklinks           Int
-  lostBacklinks          Int
-  referringDomains       Int
-  organicKeywords        Int?
-  organicTraffic         Float?
-  domainOverview         Json
-  backlinks              Json
-  referringDomainsData   Json
-  lostBacklinksData      Json
-  organicKeywordsData    Json
-  competitorBacklinkGap  Json
-  anchorTextDistribution Json
-  topReferringPages      Json
-  backlinkQualityNotes   Json
-  createdAt              DateTime @default(now())
-  report                 Report   @relation(fields: [reportId], references: [id], onDelete: Cascade)
-
-  @@index([target])
-  @@index([createdAt])
 }
 
 model AiSearchSnapshot {

@@ -21,7 +21,6 @@ export const clientSchema = z.object({
   clientLogoUrl: optionalUrl,
   gscPropertyUrl: optionalText,
   ga4PropertyId: optionalText,
-  ahrefsProjectId: optionalText,
 });
 
 export type ClientFormInput = z.input<typeof clientSchema>;

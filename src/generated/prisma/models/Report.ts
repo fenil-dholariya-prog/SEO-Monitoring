@@ -287,7 +287,6 @@ export type ReportWhereInput = {
   client?: Prisma.XOR<Prisma.ClientScalarRelationFilter, Prisma.ClientWhereInput>
   gscSnapshot?: Prisma.XOR<Prisma.GscSnapshotNullableScalarRelationFilter, Prisma.GscSnapshotWhereInput> | null
   ga4Snapshot?: Prisma.XOR<Prisma.Ga4SnapshotNullableScalarRelationFilter, Prisma.Ga4SnapshotWhereInput> | null
-  ahrefsSnapshot?: Prisma.XOR<Prisma.AhrefsSnapshotNullableScalarRelationFilter, Prisma.AhrefsSnapshotWhereInput> | null
   aiSearchSnapshot?: Prisma.XOR<Prisma.AiSearchSnapshotNullableScalarRelationFilter, Prisma.AiSearchSnapshotWhereInput> | null
   onPageWorks?: Prisma.OnPageWorkListRelationFilter
   backlinkWorks?: Prisma.BacklinkWorkListRelationFilter
@@ -312,7 +311,6 @@ export type ReportOrderByWithRelationInput = {
   client?: Prisma.ClientOrderByWithRelationInput
   gscSnapshot?: Prisma.GscSnapshotOrderByWithRelationInput
   ga4Snapshot?: Prisma.Ga4SnapshotOrderByWithRelationInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotOrderByWithRelationInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotOrderByWithRelationInput
   onPageWorks?: Prisma.OnPageWorkOrderByRelationAggregateInput
   backlinkWorks?: Prisma.BacklinkWorkOrderByRelationAggregateInput
@@ -341,7 +339,6 @@ export type ReportWhereUniqueInput = Prisma.AtLeast<{
   client?: Prisma.XOR<Prisma.ClientScalarRelationFilter, Prisma.ClientWhereInput>
   gscSnapshot?: Prisma.XOR<Prisma.GscSnapshotNullableScalarRelationFilter, Prisma.GscSnapshotWhereInput> | null
   ga4Snapshot?: Prisma.XOR<Prisma.Ga4SnapshotNullableScalarRelationFilter, Prisma.Ga4SnapshotWhereInput> | null
-  ahrefsSnapshot?: Prisma.XOR<Prisma.AhrefsSnapshotNullableScalarRelationFilter, Prisma.AhrefsSnapshotWhereInput> | null
   aiSearchSnapshot?: Prisma.XOR<Prisma.AiSearchSnapshotNullableScalarRelationFilter, Prisma.AiSearchSnapshotWhereInput> | null
   onPageWorks?: Prisma.OnPageWorkListRelationFilter
   backlinkWorks?: Prisma.BacklinkWorkListRelationFilter
@@ -405,7 +402,6 @@ export type ReportCreateInput = {
   client: Prisma.ClientCreateNestedOneWithoutReportsInput
   gscSnapshot?: Prisma.GscSnapshotCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkCreateNestedManyWithoutReportInput
@@ -429,7 +425,6 @@ export type ReportUncheckedCreateInput = {
   updatedAt?: Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkUncheckedCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedCreateNestedManyWithoutReportInput
@@ -453,7 +448,6 @@ export type ReportUpdateInput = {
   client?: Prisma.ClientUpdateOneRequiredWithoutReportsNestedInput
   gscSnapshot?: Prisma.GscSnapshotUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUpdateManyWithoutReportNestedInput
@@ -477,7 +471,6 @@ export type ReportUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUncheckedUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedUpdateManyWithoutReportNestedInput
@@ -693,20 +686,6 @@ export type ReportUpdateOneRequiredWithoutGa4SnapshotNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ReportUpdateToOneWithWhereWithoutGa4SnapshotInput, Prisma.ReportUpdateWithoutGa4SnapshotInput>, Prisma.ReportUncheckedUpdateWithoutGa4SnapshotInput>
 }
 
-export type ReportCreateNestedOneWithoutAhrefsSnapshotInput = {
-  create?: Prisma.XOR<Prisma.ReportCreateWithoutAhrefsSnapshotInput, Prisma.ReportUncheckedCreateWithoutAhrefsSnapshotInput>
-  connectOrCreate?: Prisma.ReportCreateOrConnectWithoutAhrefsSnapshotInput
-  connect?: Prisma.ReportWhereUniqueInput
-}
-
-export type ReportUpdateOneRequiredWithoutAhrefsSnapshotNestedInput = {
-  create?: Prisma.XOR<Prisma.ReportCreateWithoutAhrefsSnapshotInput, Prisma.ReportUncheckedCreateWithoutAhrefsSnapshotInput>
-  connectOrCreate?: Prisma.ReportCreateOrConnectWithoutAhrefsSnapshotInput
-  upsert?: Prisma.ReportUpsertWithoutAhrefsSnapshotInput
-  connect?: Prisma.ReportWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ReportUpdateToOneWithWhereWithoutAhrefsSnapshotInput, Prisma.ReportUpdateWithoutAhrefsSnapshotInput>, Prisma.ReportUncheckedUpdateWithoutAhrefsSnapshotInput>
-}
-
 export type ReportCreateNestedOneWithoutAiSearchSnapshotInput = {
   create?: Prisma.XOR<Prisma.ReportCreateWithoutAiSearchSnapshotInput, Prisma.ReportUncheckedCreateWithoutAiSearchSnapshotInput>
   connectOrCreate?: Prisma.ReportCreateOrConnectWithoutAiSearchSnapshotInput
@@ -792,7 +771,6 @@ export type ReportCreateWithoutClientInput = {
   updatedAt?: Date | string
   gscSnapshot?: Prisma.GscSnapshotCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkCreateNestedManyWithoutReportInput
@@ -815,7 +793,6 @@ export type ReportUncheckedCreateWithoutClientInput = {
   updatedAt?: Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkUncheckedCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedCreateNestedManyWithoutReportInput
@@ -883,7 +860,6 @@ export type ReportCreateWithoutGscSnapshotInput = {
   updatedAt?: Date | string
   client: Prisma.ClientCreateNestedOneWithoutReportsInput
   ga4Snapshot?: Prisma.Ga4SnapshotCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkCreateNestedManyWithoutReportInput
@@ -906,7 +882,6 @@ export type ReportUncheckedCreateWithoutGscSnapshotInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkUncheckedCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedCreateNestedManyWithoutReportInput
@@ -945,7 +920,6 @@ export type ReportUpdateWithoutGscSnapshotInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   client?: Prisma.ClientUpdateOneRequiredWithoutReportsNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUpdateManyWithoutReportNestedInput
@@ -968,7 +942,6 @@ export type ReportUncheckedUpdateWithoutGscSnapshotInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUncheckedUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedUpdateManyWithoutReportNestedInput
@@ -991,7 +964,6 @@ export type ReportCreateWithoutGa4SnapshotInput = {
   updatedAt?: Date | string
   client: Prisma.ClientCreateNestedOneWithoutReportsInput
   gscSnapshot?: Prisma.GscSnapshotCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkCreateNestedManyWithoutReportInput
@@ -1014,7 +986,6 @@ export type ReportUncheckedCreateWithoutGa4SnapshotInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkUncheckedCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedCreateNestedManyWithoutReportInput
@@ -1053,7 +1024,6 @@ export type ReportUpdateWithoutGa4SnapshotInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   client?: Prisma.ClientUpdateOneRequiredWithoutReportsNestedInput
   gscSnapshot?: Prisma.GscSnapshotUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUpdateManyWithoutReportNestedInput
@@ -1076,115 +1046,6 @@ export type ReportUncheckedUpdateWithoutGa4SnapshotInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedUpdateOneWithoutReportNestedInput
-  aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedUpdateOneWithoutReportNestedInput
-  onPageWorks?: Prisma.OnPageWorkUncheckedUpdateManyWithoutReportNestedInput
-  backlinkWorks?: Prisma.BacklinkWorkUncheckedUpdateManyWithoutReportNestedInput
-  blogPlans?: Prisma.BlogPlanUncheckedUpdateManyWithoutReportNestedInput
-  exports?: Prisma.ReportExportUncheckedUpdateManyWithoutReportNestedInput
-}
-
-export type ReportCreateWithoutAhrefsSnapshotInput = {
-  id?: string
-  month: number
-  year: number
-  startDate: Date | string
-  endDate: Date | string
-  status?: $Enums.ReportStatus
-  executiveSummary?: string | null
-  winsSummary?: string | null
-  issuesSummary?: string | null
-  nextMonthFocus?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  client: Prisma.ClientCreateNestedOneWithoutReportsInput
-  gscSnapshot?: Prisma.GscSnapshotCreateNestedOneWithoutReportInput
-  ga4Snapshot?: Prisma.Ga4SnapshotCreateNestedOneWithoutReportInput
-  aiSearchSnapshot?: Prisma.AiSearchSnapshotCreateNestedOneWithoutReportInput
-  onPageWorks?: Prisma.OnPageWorkCreateNestedManyWithoutReportInput
-  backlinkWorks?: Prisma.BacklinkWorkCreateNestedManyWithoutReportInput
-  blogPlans?: Prisma.BlogPlanCreateNestedManyWithoutReportInput
-  exports?: Prisma.ReportExportCreateNestedManyWithoutReportInput
-}
-
-export type ReportUncheckedCreateWithoutAhrefsSnapshotInput = {
-  id?: string
-  clientId: string
-  month: number
-  year: number
-  startDate: Date | string
-  endDate: Date | string
-  status?: $Enums.ReportStatus
-  executiveSummary?: string | null
-  winsSummary?: string | null
-  issuesSummary?: string | null
-  nextMonthFocus?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  gscSnapshot?: Prisma.GscSnapshotUncheckedCreateNestedOneWithoutReportInput
-  ga4Snapshot?: Prisma.Ga4SnapshotUncheckedCreateNestedOneWithoutReportInput
-  aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedCreateNestedOneWithoutReportInput
-  onPageWorks?: Prisma.OnPageWorkUncheckedCreateNestedManyWithoutReportInput
-  backlinkWorks?: Prisma.BacklinkWorkUncheckedCreateNestedManyWithoutReportInput
-  blogPlans?: Prisma.BlogPlanUncheckedCreateNestedManyWithoutReportInput
-  exports?: Prisma.ReportExportUncheckedCreateNestedManyWithoutReportInput
-}
-
-export type ReportCreateOrConnectWithoutAhrefsSnapshotInput = {
-  where: Prisma.ReportWhereUniqueInput
-  create: Prisma.XOR<Prisma.ReportCreateWithoutAhrefsSnapshotInput, Prisma.ReportUncheckedCreateWithoutAhrefsSnapshotInput>
-}
-
-export type ReportUpsertWithoutAhrefsSnapshotInput = {
-  update: Prisma.XOR<Prisma.ReportUpdateWithoutAhrefsSnapshotInput, Prisma.ReportUncheckedUpdateWithoutAhrefsSnapshotInput>
-  create: Prisma.XOR<Prisma.ReportCreateWithoutAhrefsSnapshotInput, Prisma.ReportUncheckedCreateWithoutAhrefsSnapshotInput>
-  where?: Prisma.ReportWhereInput
-}
-
-export type ReportUpdateToOneWithWhereWithoutAhrefsSnapshotInput = {
-  where?: Prisma.ReportWhereInput
-  data: Prisma.XOR<Prisma.ReportUpdateWithoutAhrefsSnapshotInput, Prisma.ReportUncheckedUpdateWithoutAhrefsSnapshotInput>
-}
-
-export type ReportUpdateWithoutAhrefsSnapshotInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  month?: Prisma.IntFieldUpdateOperationsInput | number
-  year?: Prisma.IntFieldUpdateOperationsInput | number
-  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  status?: Prisma.EnumReportStatusFieldUpdateOperationsInput | $Enums.ReportStatus
-  executiveSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  winsSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  issuesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  nextMonthFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  client?: Prisma.ClientUpdateOneRequiredWithoutReportsNestedInput
-  gscSnapshot?: Prisma.GscSnapshotUpdateOneWithoutReportNestedInput
-  ga4Snapshot?: Prisma.Ga4SnapshotUpdateOneWithoutReportNestedInput
-  aiSearchSnapshot?: Prisma.AiSearchSnapshotUpdateOneWithoutReportNestedInput
-  onPageWorks?: Prisma.OnPageWorkUpdateManyWithoutReportNestedInput
-  backlinkWorks?: Prisma.BacklinkWorkUpdateManyWithoutReportNestedInput
-  blogPlans?: Prisma.BlogPlanUpdateManyWithoutReportNestedInput
-  exports?: Prisma.ReportExportUpdateManyWithoutReportNestedInput
-}
-
-export type ReportUncheckedUpdateWithoutAhrefsSnapshotInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  clientId?: Prisma.StringFieldUpdateOperationsInput | string
-  month?: Prisma.IntFieldUpdateOperationsInput | number
-  year?: Prisma.IntFieldUpdateOperationsInput | number
-  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  status?: Prisma.EnumReportStatusFieldUpdateOperationsInput | $Enums.ReportStatus
-  executiveSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  winsSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  issuesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  nextMonthFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  gscSnapshot?: Prisma.GscSnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ga4Snapshot?: Prisma.Ga4SnapshotUncheckedUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUncheckedUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedUpdateManyWithoutReportNestedInput
@@ -1208,7 +1069,6 @@ export type ReportCreateWithoutAiSearchSnapshotInput = {
   client: Prisma.ClientCreateNestedOneWithoutReportsInput
   gscSnapshot?: Prisma.GscSnapshotCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkCreateNestedManyWithoutReportInput
   blogPlans?: Prisma.BlogPlanCreateNestedManyWithoutReportInput
@@ -1231,7 +1091,6 @@ export type ReportUncheckedCreateWithoutAiSearchSnapshotInput = {
   updatedAt?: Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkUncheckedCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedCreateNestedManyWithoutReportInput
   blogPlans?: Prisma.BlogPlanUncheckedCreateNestedManyWithoutReportInput
@@ -1270,7 +1129,6 @@ export type ReportUpdateWithoutAiSearchSnapshotInput = {
   client?: Prisma.ClientUpdateOneRequiredWithoutReportsNestedInput
   gscSnapshot?: Prisma.GscSnapshotUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUpdateManyWithoutReportNestedInput
   blogPlans?: Prisma.BlogPlanUpdateManyWithoutReportNestedInput
@@ -1293,7 +1151,6 @@ export type ReportUncheckedUpdateWithoutAiSearchSnapshotInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUncheckedUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedUpdateManyWithoutReportNestedInput
   blogPlans?: Prisma.BlogPlanUncheckedUpdateManyWithoutReportNestedInput
@@ -1316,7 +1173,6 @@ export type ReportCreateWithoutOnPageWorksInput = {
   client: Prisma.ClientCreateNestedOneWithoutReportsInput
   gscSnapshot?: Prisma.GscSnapshotCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotCreateNestedOneWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkCreateNestedManyWithoutReportInput
   blogPlans?: Prisma.BlogPlanCreateNestedManyWithoutReportInput
@@ -1339,7 +1195,6 @@ export type ReportUncheckedCreateWithoutOnPageWorksInput = {
   updatedAt?: Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedCreateNestedOneWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedCreateNestedManyWithoutReportInput
   blogPlans?: Prisma.BlogPlanUncheckedCreateNestedManyWithoutReportInput
@@ -1378,7 +1233,6 @@ export type ReportUpdateWithoutOnPageWorksInput = {
   client?: Prisma.ClientUpdateOneRequiredWithoutReportsNestedInput
   gscSnapshot?: Prisma.GscSnapshotUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUpdateOneWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUpdateManyWithoutReportNestedInput
   blogPlans?: Prisma.BlogPlanUpdateManyWithoutReportNestedInput
@@ -1401,7 +1255,6 @@ export type ReportUncheckedUpdateWithoutOnPageWorksInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedUpdateOneWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedUpdateManyWithoutReportNestedInput
   blogPlans?: Prisma.BlogPlanUncheckedUpdateManyWithoutReportNestedInput
@@ -1424,7 +1277,6 @@ export type ReportCreateWithoutBacklinkWorksInput = {
   client: Prisma.ClientCreateNestedOneWithoutReportsInput
   gscSnapshot?: Prisma.GscSnapshotCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkCreateNestedManyWithoutReportInput
   blogPlans?: Prisma.BlogPlanCreateNestedManyWithoutReportInput
@@ -1447,7 +1299,6 @@ export type ReportUncheckedCreateWithoutBacklinkWorksInput = {
   updatedAt?: Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkUncheckedCreateNestedManyWithoutReportInput
   blogPlans?: Prisma.BlogPlanUncheckedCreateNestedManyWithoutReportInput
@@ -1486,7 +1337,6 @@ export type ReportUpdateWithoutBacklinkWorksInput = {
   client?: Prisma.ClientUpdateOneRequiredWithoutReportsNestedInput
   gscSnapshot?: Prisma.GscSnapshotUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUpdateManyWithoutReportNestedInput
   blogPlans?: Prisma.BlogPlanUpdateManyWithoutReportNestedInput
@@ -1509,7 +1359,6 @@ export type ReportUncheckedUpdateWithoutBacklinkWorksInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUncheckedUpdateManyWithoutReportNestedInput
   blogPlans?: Prisma.BlogPlanUncheckedUpdateManyWithoutReportNestedInput
@@ -1532,7 +1381,6 @@ export type ReportCreateWithoutBlogPlansInput = {
   client: Prisma.ClientCreateNestedOneWithoutReportsInput
   gscSnapshot?: Prisma.GscSnapshotCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkCreateNestedManyWithoutReportInput
@@ -1555,7 +1403,6 @@ export type ReportUncheckedCreateWithoutBlogPlansInput = {
   updatedAt?: Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkUncheckedCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedCreateNestedManyWithoutReportInput
@@ -1594,7 +1441,6 @@ export type ReportUpdateWithoutBlogPlansInput = {
   client?: Prisma.ClientUpdateOneRequiredWithoutReportsNestedInput
   gscSnapshot?: Prisma.GscSnapshotUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUpdateManyWithoutReportNestedInput
@@ -1617,7 +1463,6 @@ export type ReportUncheckedUpdateWithoutBlogPlansInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUncheckedUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedUpdateManyWithoutReportNestedInput
@@ -1640,7 +1485,6 @@ export type ReportCreateWithoutExportsInput = {
   client: Prisma.ClientCreateNestedOneWithoutReportsInput
   gscSnapshot?: Prisma.GscSnapshotCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkCreateNestedManyWithoutReportInput
@@ -1663,7 +1507,6 @@ export type ReportUncheckedCreateWithoutExportsInput = {
   updatedAt?: Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedCreateNestedOneWithoutReportInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedCreateNestedOneWithoutReportInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedCreateNestedOneWithoutReportInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedCreateNestedOneWithoutReportInput
   onPageWorks?: Prisma.OnPageWorkUncheckedCreateNestedManyWithoutReportInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedCreateNestedManyWithoutReportInput
@@ -1702,7 +1545,6 @@ export type ReportUpdateWithoutExportsInput = {
   client?: Prisma.ClientUpdateOneRequiredWithoutReportsNestedInput
   gscSnapshot?: Prisma.GscSnapshotUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUpdateManyWithoutReportNestedInput
@@ -1725,7 +1567,6 @@ export type ReportUncheckedUpdateWithoutExportsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUncheckedUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedUpdateManyWithoutReportNestedInput
@@ -1762,7 +1603,6 @@ export type ReportUpdateWithoutClientInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gscSnapshot?: Prisma.GscSnapshotUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUpdateManyWithoutReportNestedInput
@@ -1785,7 +1625,6 @@ export type ReportUncheckedUpdateWithoutClientInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gscSnapshot?: Prisma.GscSnapshotUncheckedUpdateOneWithoutReportNestedInput
   ga4Snapshot?: Prisma.Ga4SnapshotUncheckedUpdateOneWithoutReportNestedInput
-  ahrefsSnapshot?: Prisma.AhrefsSnapshotUncheckedUpdateOneWithoutReportNestedInput
   aiSearchSnapshot?: Prisma.AiSearchSnapshotUncheckedUpdateOneWithoutReportNestedInput
   onPageWorks?: Prisma.OnPageWorkUncheckedUpdateManyWithoutReportNestedInput
   backlinkWorks?: Prisma.BacklinkWorkUncheckedUpdateManyWithoutReportNestedInput
@@ -1883,7 +1722,6 @@ export type ReportSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   client?: boolean | Prisma.ClientDefaultArgs<ExtArgs>
   gscSnapshot?: boolean | Prisma.Report$gscSnapshotArgs<ExtArgs>
   ga4Snapshot?: boolean | Prisma.Report$ga4SnapshotArgs<ExtArgs>
-  ahrefsSnapshot?: boolean | Prisma.Report$ahrefsSnapshotArgs<ExtArgs>
   aiSearchSnapshot?: boolean | Prisma.Report$aiSearchSnapshotArgs<ExtArgs>
   onPageWorks?: boolean | Prisma.Report$onPageWorksArgs<ExtArgs>
   backlinkWorks?: boolean | Prisma.Report$backlinkWorksArgs<ExtArgs>
@@ -1947,7 +1785,6 @@ export type ReportInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   client?: boolean | Prisma.ClientDefaultArgs<ExtArgs>
   gscSnapshot?: boolean | Prisma.Report$gscSnapshotArgs<ExtArgs>
   ga4Snapshot?: boolean | Prisma.Report$ga4SnapshotArgs<ExtArgs>
-  ahrefsSnapshot?: boolean | Prisma.Report$ahrefsSnapshotArgs<ExtArgs>
   aiSearchSnapshot?: boolean | Prisma.Report$aiSearchSnapshotArgs<ExtArgs>
   onPageWorks?: boolean | Prisma.Report$onPageWorksArgs<ExtArgs>
   backlinkWorks?: boolean | Prisma.Report$backlinkWorksArgs<ExtArgs>
@@ -1968,7 +1805,6 @@ export type $ReportPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     client: Prisma.$ClientPayload<ExtArgs>
     gscSnapshot: Prisma.$GscSnapshotPayload<ExtArgs> | null
     ga4Snapshot: Prisma.$Ga4SnapshotPayload<ExtArgs> | null
-    ahrefsSnapshot: Prisma.$AhrefsSnapshotPayload<ExtArgs> | null
     aiSearchSnapshot: Prisma.$AiSearchSnapshotPayload<ExtArgs> | null
     onPageWorks: Prisma.$OnPageWorkPayload<ExtArgs>[]
     backlinkWorks: Prisma.$BacklinkWorkPayload<ExtArgs>[]
@@ -2386,7 +2222,6 @@ export interface Prisma__ReportClient<T, Null = never, ExtArgs extends runtime.T
   client<T extends Prisma.ClientDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClientDefaultArgs<ExtArgs>>): Prisma.Prisma__ClientClient<runtime.Types.Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   gscSnapshot<T extends Prisma.Report$gscSnapshotArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Report$gscSnapshotArgs<ExtArgs>>): Prisma.Prisma__GscSnapshotClient<runtime.Types.Result.GetResult<Prisma.$GscSnapshotPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   ga4Snapshot<T extends Prisma.Report$ga4SnapshotArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Report$ga4SnapshotArgs<ExtArgs>>): Prisma.Prisma__Ga4SnapshotClient<runtime.Types.Result.GetResult<Prisma.$Ga4SnapshotPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  ahrefsSnapshot<T extends Prisma.Report$ahrefsSnapshotArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Report$ahrefsSnapshotArgs<ExtArgs>>): Prisma.Prisma__AhrefsSnapshotClient<runtime.Types.Result.GetResult<Prisma.$AhrefsSnapshotPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   aiSearchSnapshot<T extends Prisma.Report$aiSearchSnapshotArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Report$aiSearchSnapshotArgs<ExtArgs>>): Prisma.Prisma__AiSearchSnapshotClient<runtime.Types.Result.GetResult<Prisma.$AiSearchSnapshotPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   onPageWorks<T extends Prisma.Report$onPageWorksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Report$onPageWorksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OnPageWorkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   backlinkWorks<T extends Prisma.Report$backlinkWorksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Report$backlinkWorksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BacklinkWorkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2870,25 +2705,6 @@ export type Report$ga4SnapshotArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   include?: Prisma.Ga4SnapshotInclude<ExtArgs> | null
   where?: Prisma.Ga4SnapshotWhereInput
-}
-
-/**
- * Report.ahrefsSnapshot
- */
-export type Report$ahrefsSnapshotArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AhrefsSnapshot
-   */
-  select?: Prisma.AhrefsSnapshotSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AhrefsSnapshot
-   */
-  omit?: Prisma.AhrefsSnapshotOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.AhrefsSnapshotInclude<ExtArgs> | null
-  where?: Prisma.AhrefsSnapshotWhereInput
 }
 
 /**

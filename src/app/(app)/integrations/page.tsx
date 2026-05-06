@@ -8,7 +8,6 @@ export const dynamic = "force-dynamic";
 export default async function IntegrationsPage() {
   const clients = await prisma.client.findMany({ orderBy: { name: "asc" } });
   const mockMode = process.env.GOOGLE_API_MOCK_MODE !== "false";
-  const ahrefsMockMode = process.env.NODE_ENV !== "production" && (process.env.AHREFS_API_MOCK_MODE !== "false" || !process.env.AHREFS_API_TOKEN);
   return (
     <div className="space-y-6">
       <div>
@@ -25,19 +24,6 @@ export default async function IntegrationsPage() {
         </div>
       </Card>
       <Card>
-        <div className="flex items-start gap-3">
-          <Cable className="mt-1 h-5 w-5 text-gray-500" />
-          <div>
-            <h2 className="text-lg font-semibold text-gray-950">Ahrefs API v3 mode</h2>
-            <p className="mt-1 text-sm text-gray-500">
-              {ahrefsMockMode
-                ? "Development mock mode is enabled or no Ahrefs token is configured. Off-page snapshots use realistic mock data."
-                : "Real Ahrefs API v3 mode is enabled for Site Explorer snapshots."}
-            </p>
-          </div>
-        </div>
-      </Card>
-      <Card>
         <h2 className="text-lg font-semibold text-gray-950">Client property readiness</h2>
         <div className="mt-4 grid gap-3">
           {clients.map((client) => (
@@ -49,7 +35,6 @@ export default async function IntegrationsPage() {
               <div className="flex gap-2">
                 <Badge tone={client.gscPropertyUrl ? "green" : "amber"}>{client.gscPropertyUrl ? <CheckCircle2 className="mr-1 h-3 w-3" /> : <CircleAlert className="mr-1 h-3 w-3" />}GSC</Badge>
                 <Badge tone={client.ga4PropertyId ? "green" : "amber"}>{client.ga4PropertyId ? <CheckCircle2 className="mr-1 h-3 w-3" /> : <CircleAlert className="mr-1 h-3 w-3" />}GA4</Badge>
-                <Badge tone={client.ahrefsProjectId || ahrefsMockMode ? "green" : "amber"}>Ahrefs</Badge>
               </div>
             </div>
           ))}

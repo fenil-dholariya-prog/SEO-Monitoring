@@ -40,7 +40,6 @@ async function main() {
       clientLogoUrl: "/placeholder-client.svg",
       gscPropertyUrl: "sc-domain:northstar.example.com",
       ga4PropertyId: "123456789",
-      ahrefsProjectId: null,
     },
   });
 
@@ -59,7 +58,6 @@ async function main() {
       clientLogoUrl: "/placeholder-client.svg",
       gscPropertyUrl: "https://civicstone.example.com/",
       ga4PropertyId: "987654321",
-      ahrefsProjectId: null,
     },
   });
 
@@ -168,62 +166,6 @@ async function createDemoReport(
     },
   });
 
-  await prisma.ahrefsSnapshot.upsert({
-    where: { reportId: report.id },
-    update: {},
-    create: {
-      reportId: report.id,
-      target: clientType === "ECOMMERCE" ? "northstar.example.com" : "civicstone.example.com",
-      mode: "domain",
-      domainRating: clientType === "ECOMMERCE" ? 54 : 47,
-      totalBacklinks: clientType === "ECOMMERCE" ? 18240 : 7340,
-      newBacklinks: clientType === "ECOMMERCE" ? 24 : 12,
-      lostBacklinks: clientType === "ECOMMERCE" ? 3 : 2,
-      referringDomains: clientType === "ECOMMERCE" ? 1220 : 640,
-      organicKeywords: clientType === "ECOMMERCE" ? 8420 : 3180,
-      organicTraffic: clientType === "ECOMMERCE" ? 68400 : 22100,
-      domainOverview: { domainRating: clientType === "ECOMMERCE" ? 54 : 47, totalBacklinks: clientType === "ECOMMERCE" ? 18240 : 7340 },
-      backlinks: [
-        {
-          sourceUrl: "https://industry.example.com/resources",
-          targetUrl: clientType === "ECOMMERCE" ? "/collections/winter" : "/services/family-law",
-          anchorText: clientType === "ECOMMERCE" ? "winter outdoor gear" : "family law services",
-          domainRating: 48,
-          firstSeen: "2026-04-12",
-        },
-      ],
-      referringDomainsData: [
-        { domain: "industry.example.com", domainRating: 48, backlinks: 3 },
-        { domain: "localnews.example.com", domainRating: 41, backlinks: 2 },
-      ],
-      lostBacklinksData: [
-        { sourceUrl: "https://old-directory.example.com/listing", targetUrl: "/", anchorText: "brand", domainRating: 24 },
-      ],
-      organicKeywordsData: [
-        { keyword: clientType === "ECOMMERCE" ? "winter hiking boots" : "family lawyer near me", position: 6, volume: 2400 },
-      ],
-      competitorBacklinkGap: [
-        {
-          referringPage: "https://roundup.example.com/best-services",
-          competitorUrl: "https://competitor.example.com",
-          domainRating: 61,
-          opportunity: "Relevant roundup links to competitors but not this client.",
-        },
-      ],
-      anchorTextDistribution: [
-        { anchorText: "brand", backlinks: 420, share: 44 },
-        { anchorText: clientType === "ECOMMERCE" ? "winter outdoor gear" : "family law services", backlinks: 96, share: 10 },
-        { anchorText: "generic", backlinks: 330, share: 35 },
-      ],
-      topReferringPages: [
-        { sourceUrl: "https://industry.example.com/resources", domainRating: 48, traffic: 1400 },
-      ],
-      backlinkQualityNotes: [
-        "New links are topically relevant and support priority landing pages.",
-        "Lost links are low-to-mid authority and should be monitored before outreach.",
-      ],
-    },
-  });
 
   await prisma.aiSearchSnapshot.upsert({
     where: { reportId: report.id },

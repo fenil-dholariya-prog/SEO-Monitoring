@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { Download, FileText, RefreshCw, WandSparkles } from "lucide-react";
-import { fetchAhrefsDataAction, fetchReportDataAction, generateInsightsAction } from "@/server/actions";
+import { fetchReportDataAction, generateInsightsAction } from "@/server/actions";
 import { Button, LinkButton } from "@/components/ui/button";
 
 export function FetchDataButton({ reportId }: { reportId: string }) {
@@ -46,30 +46,6 @@ export function GenerateInsightsButton({ reportId }: { reportId: string }) {
       >
         <WandSparkles className="h-4 w-4" />
         {pending ? "Generating..." : "Generate insights"}
-      </Button>
-      {message ? <p className="text-sm text-gray-500">{message}</p> : null}
-    </div>
-  );
-}
-
-export function FetchAhrefsButton({ reportId }: { reportId: string }) {
-  const [pending, startTransition] = useTransition();
-  const [message, setMessage] = useState<string | null>(null);
-  return (
-    <div className="flex flex-wrap items-center gap-3">
-      <Button
-        type="button"
-        variant="secondary"
-        disabled={pending}
-        onClick={() =>
-          startTransition(async () => {
-            const result = await fetchAhrefsDataAction(reportId);
-            setMessage(result?.error ?? "Ahrefs off-page data refreshed.");
-          })
-        }
-      >
-        <RefreshCw className="h-4 w-4" />
-        {pending ? "Fetching..." : "Fetch Ahrefs data"}
       </Button>
       {message ? <p className="text-sm text-gray-500">{message}</p> : null}
     </div>
